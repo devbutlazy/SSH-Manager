@@ -4,7 +4,6 @@ A tool to manager your SSH connectuions in one place conviniently.
 
 ## Tasks
 - [x] Basic Logics
-- [ ] Remove SSH from .json file
 - [ ] Refactor keys managment code 
 - [ ] ...
 
