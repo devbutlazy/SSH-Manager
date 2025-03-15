@@ -4,7 +4,7 @@ A tool to manager your SSH connectuions in one place conviniently.
 
 ## Tasks
 - [x] Basic Logics
-- [ ] Refactor keys managment code 
+- [x] Refactor keys managment code 
 - [ ] ...
 
 ## Installation (non-docker)
@@ -22,9 +22,6 @@ go run ./main.go // run it
 go build ./main.go // build it to main.exe
 ```
 
-
-## Installation (Docker):
-`-` Not supported yet :)
 
 ## Feel free to open [issues](https://github.com/devbutlazy/SSH-Manager/issues) or [pull requests](https://github.com/devbutlazy/SSH-Manager/pulls) if you have encountered any kind of problems.
 

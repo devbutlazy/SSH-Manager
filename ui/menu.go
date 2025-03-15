@@ -55,7 +55,7 @@ func getMenuChoice() int {
 		if b[0] == 27 {
 			b = make([]byte, 2)
 			os.Stdin.Read(b)
-			
+
 			if b[0] == 91 {
 				switch b[1] {
 				case 65: // Up arrow
