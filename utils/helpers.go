@@ -21,14 +21,15 @@ func ClearScreen() {
 }
 
 func WaitForEnter() {
-	fmt.Println("\n[ ~ ] Press enter to return to main menu...")
-	bufio.NewScanner(os.Stdin).Scan()
+	fmt.Println("[ ~ ] Press Enter to continue...")
+	reader := bufio.NewReader(os.Stdin)
+	reader.ReadString('\n')
 }
 
 func ReadInput(prompt string) string {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print(prompt)
-	
+
 	input, _ := reader.ReadString('\n')
 	return strings.TrimSpace(input)
 }

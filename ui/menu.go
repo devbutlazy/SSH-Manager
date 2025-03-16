@@ -9,40 +9,38 @@ import (
 )
 
 func MainMenu() {
-	for {
+	utils.ClearScreen()
+
+	var choice int
+
+	fmt.Println("=== SSH Configuration Manager ===")
+	fmt.Println("[ 1 ] Connect to SSH")
+	fmt.Println("[ 2 ] Add SSH connection")
+	fmt.Println("[ 3 ] Remove SSH connection")
+	fmt.Println("[ 4 ] Exit")
+	fmt.Print(">>> ")
+
+	_, err := fmt.Scan(&choice)
+	if err != nil {
+		fmt.Println("Invalid input. Please enter a number.")
+		utils.WaitForEnter()
+		return
+	}
+
+	switch choice {
+	case 1:
+		ssh.ConnectToSSH()
+	case 2:
+		addSSH()
+	case 3:
+		ssh.RemoveSSH()
+	case 4:
 		utils.ClearScreen()
-
-		var choice int
-
-		fmt.Println("=== SSH Configuration Manager ===")
-		fmt.Println("[ 1 ] Connect to SSH")
-		fmt.Println("[ 2 ] Add SSH connection")
-		fmt.Println("[ 3 ] Remove SSH connection")
-		fmt.Println("[ 4 ] Exit")
-		fmt.Print(">>> ")
-
-		_, err := fmt.Scan(&choice)
-		if err != nil {
-			fmt.Println("Invalid input. Please enter a number.")
-			utils.WaitForEnter()
-			continue
-		}
-
-		switch choice {
-		case 1:
-			ssh.ConnectToSSH()
-		case 2:
-			addSSH()
-		case 3:
-			ssh.RemoveSSH()
-		case 4:
-			utils.ClearScreen()
-			fmt.Println("=== Goodbye ===")
-			os.Exit(0)
-		default:
-			fmt.Println("Invalid choice")
-			utils.WaitForEnter()
-		}
+		fmt.Println("=== Goodbye ===")
+		os.Exit(0)
+	default:
+		fmt.Println("Invalid choice")
+		utils.WaitForEnter()
 	}
 }
 
