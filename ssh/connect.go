@@ -1,7 +1,9 @@
 package ssh
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"ssh-manager/config"
 	"ssh-manager/utils"
 )
@@ -33,10 +35,13 @@ func ConnectToSSH() {
 	fmt.Print(">>> ")
 	fmt.Scan(&selected)
 
+	bufio.NewReader(os.Stdin).ReadString('\n')
+
 	if selected > 0 && selected <= len(configs) {
 		ExecuteSSH(configs[selected-1])
 	} else {
 		fmt.Println("Invalid selection.")
 		utils.WaitForEnter()
+		return
 	}
 }

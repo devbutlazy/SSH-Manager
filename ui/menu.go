@@ -1,6 +1,7 @@
 package ui
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"ssh-manager/config"
@@ -26,6 +27,8 @@ func MainMenu() {
 		utils.WaitForEnter()
 		return
 	}
+
+	bufio.NewReader(os.Stdin).ReadString('\n')
 
 	switch choice {
 	case 1:
@@ -58,11 +61,13 @@ func addSSH() {
 	if err != nil {
 		fmt.Println("Error loading configs:", err)
 		utils.WaitForEnter()
+		return
 	}
 
 	configs = append(configs, newConfig)
 	if err := config.SaveConfigs(configs); err != nil {
 		fmt.Println("Error saving config:", err)
 		utils.WaitForEnter()
+		return
 	}
 }

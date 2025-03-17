@@ -21,9 +21,10 @@ func ClearScreen() {
 }
 
 func WaitForEnter() {
-	fmt.Println("[ ~ ] Press Enter to continue...")
 	reader := bufio.NewReader(os.Stdin)
-	reader.ReadString('\n')
+	fmt.Print("[ ~ ] Press Enter to continue...  ")
+	reader.Discard(reader.Buffered())
+	_, _ = reader.ReadString('\n')
 }
 
 func ReadInput(prompt string) string {

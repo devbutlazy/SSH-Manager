@@ -25,5 +25,6 @@ func ExecuteSSH(cfg config.SSHConfig) {
 	if err := cmd.Run(); err != nil {
 		fmt.Println("Error connecting to SSH:", err)
 		utils.WaitForEnter()
+		return
 	}
 }

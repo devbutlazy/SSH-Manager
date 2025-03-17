@@ -11,11 +11,13 @@ func RemoveSSH() {
 	if err != nil {
 		fmt.Println("Error reading config file:", err)
 		utils.WaitForEnter()
+		return
 	}
 
 	if len(configs) == 0 {
 		fmt.Println("No configurations available.")
 		utils.WaitForEnter()
+		return
 	}
 
 	utils.ClearScreen()
