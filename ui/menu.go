@@ -49,6 +49,7 @@ func MainMenu() {
 
 func addSSH() {
 	utils.ClearScreen()
+	
 	var newConfig config.SSHConfig
 	fmt.Println("=== Add New SSH Configuration ===")
 
