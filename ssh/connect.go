@@ -29,7 +29,7 @@ func ConnectToSSH() {
 
 	fmt.Print("=== Available SSH Configurations ===\n\n")
 	for index, cfg := range configs {
-		fmt.Printf("[ %d ] %s (%s@%s)\n", index+1, cfg.UniqueName, cfg.Username, cfg.IPAddress)
+		fmt.Printf("[ %d ] %s (%s@%s)\n", index, cfg.UniqueName, cfg.Username, cfg.IPAddress)
 	}
 
 	fmt.Print(">>> ")
@@ -38,7 +38,7 @@ func ConnectToSSH() {
 	bufio.NewReader(os.Stdin).ReadString('\n')
 
 	if selected > 0 && selected <= len(configs) {
-		ExecuteSSH(configs[selected-1])
+		ExecuteSSH(configs[selected])
 	} else {
 		fmt.Println("Invalid selection.")
 		utils.WaitForEnter()

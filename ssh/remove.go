@@ -26,13 +26,13 @@ func RemoveSSH() {
 
 	fmt.Print("=== Remove SSH Configurations ===\n\n")
 	for index, cfg := range configs {
-		fmt.Printf("[ %d ] %s (%s@%s)\n", index+1, cfg.UniqueName, cfg.Username, cfg.IPAddress)
+		fmt.Printf("[ %d ] %s (%s@%s)\n", index, cfg.UniqueName, cfg.Username, cfg.IPAddress)
 	}
 
 	fmt.Print(">>> ")
 	fmt.Scan(&selected)
 
-	configs = append(configs[:selected], configs[selected+1:]...)
+	configs = append(configs[:selected], configs[selected:]...)
 
 	if err := config.SaveConfigs(configs); err != nil {
 		fmt.Println("Error saving config:", err)
